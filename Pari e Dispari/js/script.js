@@ -6,25 +6,41 @@ while(pari_dispari != "pari" && pari_dispari != "dispari"){
 }
 
 //domanda numero da 1 a 5
-var player_num = parseInt(prompt("Ineserisci un numero da 1 a 5."));
-/* while(inserisci_num >= 5){
+
+/* if(player_num == 0 || player_num > 5 || isNaN(player_num)){
   alert("Il valore messo non e' corretto.");
-  var inserisci_num = prompt("Ineserisci un numero da 1 a 5.");
-  if(isNaN(inserisci_num)){
+  player_num = parseInt(prompt("Ineserisci un numero da 1 a 5."));
+}else if(){
+  alert("Il valore messo non e' corretto.");
+  player_num = parseInt(prompt("Ineserisci un numero da 1 a 5."));
+}else if(isNaN(player_num)){
+  alert("Il valore messo non e' corretto.");
+  player_num = parseInt(prompt("Ineserisci un numero da 1 a 5."));
+} */
+
+var input_number = false;
+while(input_number === false){
+  var player_num = parseInt(prompt("Ineserisci un numero da 1 a 5."));
+  if(player_num < 1){
+    
     alert("Il valore messo non e' corretto.");
-    var inserisci_num = prompt("Ineserisci un numero da 1 a 5.");
+    input_number === false
+  }else if(player_num > 5){
+    
+    alert("Il valore messo non e' corretto.");
+    input_number === false
+  }else if(isNaN(player_num)){
+    
+    alert("Il valore messo non e' corretto.");
+    input_number === false
+  }else{
+    input_number = true
+  }
+  
+}
 
-  } 
-} */
 
 
-/* if(inserisci_num = 0 && inserisci_num > 5){
-  var resend = prompt("Il valore messo non e' valido come numero. Inserisci un numero da 1 a 5.")
-} */
-
-var npc = random_generator();
-var somma = addition(player_num, npc);
-console.log(somma)
 var risultato = '';
 if(pari_dispari = "pari" && somma%2 == 0){
   risultato = "Hai vinto!"
@@ -33,6 +49,11 @@ if(pari_dispari = "pari" && somma%2 == 0){
 }else{
   risultato = "Hai perso!"
 }
+
+//npc
+var npc = random_generator();
+var somma = addition(player_num, npc);
+
 
 //funzione che genera un numero random da 1 a 5
 function random_generator(num){  
@@ -43,6 +64,6 @@ function addition(n1, n2){
   return n1 + n2;
 }
 
-document.getElementById('output').innerHTML = "Il numero che avevi scelto è " + player_num + "." + "Il numero del computer era " + npc + "." + "La somma dei due nummeri é " + somma + "." + risultato;
+document.getElementById('output').innerHTML = "Il numero che avevi scelto è " + player_num + ". " + "Il numero del computer era " + npc + ". " + "La somma dei due nummeri é " + somma + ". " + risultato;
 
 
